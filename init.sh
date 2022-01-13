@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 { # this ensures the entire script is downloaded #
-    test() {
-        curl -O https://raw.githubusercontent.com/shabaraba/dotfiles/main/.vimrc
+    setup_laravel() {
+        git clone https://github.com/shabaraba/laravel-environment.git
+        cd laravel-environment && rm -rf .git
     }
 
     if [ $# -ne 1 ]; then
@@ -10,7 +11,7 @@
     fi
 
     if [ $1 = 'laravel' ]; then
-        test
+        setup_laravel
     fi
 } # this ensures the entire script is downloaded #
 
