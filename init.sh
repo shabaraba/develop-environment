@@ -9,7 +9,7 @@
       exit 1
     fi
 
-    if [ $1 -eq 'laravel' ]; then
+    if [ $1 = 'laravel' ]; then
         test
     fi
 } # this ensures the entire script is downloaded #
