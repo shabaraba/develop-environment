@@ -21,7 +21,6 @@
     git clone https://github.com/shabaraba/setup-develop-environment
     mv setup-develop-environment $1-environment
     mv $1-environment/Frameworks/$1/* $1-environment/*
-    rm -rf Frameworks
-    cd $1-environment && rm -rf .git
+    rm -rf $1-environment/Frameworks $1-environment/.git
 } # this ensures the entire script is downloaded #
 
