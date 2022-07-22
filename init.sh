@@ -19,9 +19,6 @@
     #
 
     git clone https://github.com/shabaraba/setup-develop-environment \
-        && mv setup-develop-environment $1-environment \
-        && cd $1-environment \
-        && mv Frameworks/$1/* ./ \
-        && rm -rf Frameworks .git
+        && mv ./setup-develop-environment/Frameworks/$1/* ./
 }
 
