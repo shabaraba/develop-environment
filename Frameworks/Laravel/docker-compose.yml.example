@@ -1,0 +1,52 @@
+   version: '3.7'
+services:
+    web:
+      image: nginx:1.15.6
+      ports:
+        - "8000:80"
+      depends_on:
+        - app
+        - mysql
+      volumes:
+        - ./environments/default.conf:/etc/nginx/conf.d/default.conf
+        - ./src:/var/www/html
+    app:
+      hostname: app
+      container_name: app
+      build:
+        context: ./environments
+        dockerfile: Dockerfile
+        # args:
+        #   - USER_NAME="docker"
+      # restart: always
+      # tty: true # コンテナを起動し続ける
+      # ports:
+        # - "9000:9000"
+      volumes:
+        - ./src:/var/www/html
+        - ./environments/php.ini:/usr/local/etc/php/php.ini
+    mysql:
+      image: mysql:5.7
+      hostname: mysql
+      container_name: mysql
+      environment:
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_DATABASE: laravel
+          MYSQL_USER: mysql
+          MYSQL_PASSWORD: mysql
+          TZ: 'Asia/Tokyo'
+      command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      volumes:
+          - ./database/data:/var/lib/mysql
+          - ./database/my.cnf:/etc/mysql/conf.d/my.cnf
+          - ./database/sql:/docker-entrypoint-initdb.d
+      ports:
+          - 3306:3306
+    # composer:
+    #   image: composer:2.1.11
+    #   container_name: composer
+    #   command: "composer install"
+    #   volumes:
+    #     # /appは固定
+    #     - ./src/mynews2:/app 
+
