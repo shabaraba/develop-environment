@@ -12,5 +12,3 @@ The argment can be set in following:
 - ReactNative
 - SpringBoot
 - JupyterNotebook
-
-then, init.sh will clone my `xxx-environment` repository to your current directory and remove `.git/` folder.
