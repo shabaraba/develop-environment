@@ -8,7 +8,6 @@
     mv $1-environment/Frameworks/$1/* $1-environment/
     rm -rf $1-environment/Frameworks $1-environment/.git $1-environment/init.sh $1-environment/LICENSE $1-environment/README.md
 
-    touch $1-environment/README.md
     mkdir $1-environment/src && touch $1-environment/src/empty
     mkdir $1-environment/database && touch $1-environment/database/empty
 }
