@@ -41,11 +41,4 @@ services:
           - ./database/sql:/docker-entrypoint-initdb.d
       ports:
           - 3306:3306
-    # composer:
-    #   image: composer:2.1.11
-    #   container_name: composer
-    #   command: "composer install"
-    #   volumes:
-    #     # /appは固定
-    #     - ./src/mynews2:/app
 
