@@ -8,7 +8,9 @@ curl -o- https://raw.githubusercontent.com/shabaraba/setup-develop-environment/m
 ```
 
 The argment can be set in following:
-- laravel
-- react-native
+- Laravel
+- ReactNative
+- SpringBoot
+- JupyterNotebook
 
 then, init.sh will clone my `xxx-environment` repository to your current directory and remove `.git/` folder.
